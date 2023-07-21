@@ -27,7 +27,7 @@ app.post("/", async (req, res) => {
                 })
 
         } catch (error) {
-            console.log("send error")
+            console.log("send error", err)
         }
     }
     res.end()
