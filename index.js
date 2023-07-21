@@ -9,6 +9,26 @@ const BOT_TOKEN = "6147622164:AAHuo6mZxb0JFN81y8Xtr6wUbh7M4stBDxI"
 const BOT_METHODS = {
     SEND_MESSAGE: "sendMessage"
 }
+const keyBoard = {
+    "inline_keyboard": [
+        [{
+            "text": "Budget",
+            'callback_data': 'budget'
+        }],
+        [{
+            "text": "Total",
+            'callback_data': 'total'
+        }],
+        [{
+            "text": "Balance",
+            'callback_data': 'balance'
+        }],
+        [{
+            "text": "Expenses",
+            'callback_data': 'expenses'
+        }]
+    ]
+};
 
 const app = express()
 
@@ -23,7 +43,8 @@ app.post("/", async (req, res) => {
         await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
             {
                 chat_id: chat_Id,
-                text: `hello back 👋 ${req.body.message.from?.first_name}`
+                text: `hello back 👋 ${req.body.message.from?.first_name}`,
+                reply_markup: JSON.stringify(keyBoard)
             })
     }
     res.end()
