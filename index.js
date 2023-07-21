@@ -20,11 +20,12 @@ app.post("/", async (req, res) => {
         const chat_Id = req.body.message.chat.id
         console.log(req.body)
         try {
-            await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
+            const botreply = await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
                 {
                     chat_id: chat_Id,
                     text: `hello back 👋 ${req.body.message.from.first_name}`
                 })
+            console.log(botreply)
 
         } catch (error) {
             console.log("send error", err)
