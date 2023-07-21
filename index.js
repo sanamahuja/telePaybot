@@ -17,10 +17,11 @@ app.use(cors())
 
 app.post("/", async (req, res) => {
     if (req.headers['x-telegram-bot-api-secret-token'] === SECRET_TOKEN) {
+        console.log(req.body)
         try {
             await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
                 {
-                    chat_id: chatId,
+                    chat_id: req.body.chatId,
                     text: `hello back 👋 ${req.body.chat.first_name}`
                 })
 
