@@ -37,13 +37,13 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.post("/", async (req, res) => {
+    console.log(req.originalUrl,req.url,req.baseUrl)
     if (req.headers['x-telegram-bot-api-secret-token'] === SECRET_TOKEN) {
         const chat_Id = req.body.message?.chat.id
         console.log(req.body)
         await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
             {
                 chat_id: chat_Id,
-                text: `hello back 👋 ${req.body.message?.from?.first_name}`,
                 reply_markup: JSON.stringify(keyBoard)
             })
     }
