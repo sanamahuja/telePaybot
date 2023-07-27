@@ -38,7 +38,7 @@ app.use(cors())
 
 app.post("/", async (req, res) => {
     const chat_Id = req.body?.message?.chat.id || ""
-    console.log(req.url, req.baseUrl, req.originalUrl, "\n", req.body)
+    console.log(req.headers.origin, "\n", req.body)
     try {
         await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
             {
