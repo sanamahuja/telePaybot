@@ -37,19 +37,20 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 app.post("/", async (req, res) => {
-    const chat_Id = req.body?.message?.chat.id || ""
-    console.log(req.body?.message,req.headers)
-    try {
-        await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
-            {
-                chat_id: chat_Id,
-                text:"Select Option",
-                reply_markup: JSON.stringify(keyBoard)
-            })
-    }
-    catch (err) {
-        console.log(err)
-    }
+
+    // const chat_Id = req.body?.message?.chat.id || ""
+    console.log(req.body)
+    // try {
+         // await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
+         //     {
+         //         chat_id: chat_Id,
+         //         text:"Select Option",
+         //         reply_markup: JSON.stringify(keyBoard)
+         //     })
+    // }
+    // catch (err) {
+    //     console.log(err)
+    // }
     res.send({ "ok": true })
 })
 
