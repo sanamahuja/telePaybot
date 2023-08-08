@@ -43,7 +43,7 @@ app.post("/", async (req, res) => {
         await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
             {
                 chat_id: chat_Id,
-                text:"select an option",
+                text:"Select Option",
                 reply_markup: JSON.stringify(keyBoard)
             })
     }
