@@ -44,7 +44,7 @@ app.post("/", async (req, res) => {
             {
                 chat_id: chat_Id,
                 text:"Select Option",
-                reply_markup: JSON.stringify(keyBoard)
+                reply_markup: JSON.stringify({})
             })
     }
     catch (err) {
