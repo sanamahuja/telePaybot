@@ -2,9 +2,9 @@ const express = require("express")
 const cors = require("cors")
 const axios = require("axios")
 const PORT = 4000
-const SECRET_TOKEN = 'SanamPaybot'
+const SECRET_TOKEN = 'Sanambot'
 const GENERAL_URL = "https://api.telegram.org/bot"
-const BOT_TOKEN = "6147622164:AAHuo6mZxb0JFN81y8Xtr6wUbh7M4stBDxI"
+const BOT_TOKEN = "bot6116722343:AAFlkQrKa91gXIdeHEz1PcaTjvCvv-x1UGk"
 
 const BOT_METHODS = {
     SEND_MESSAGE: "sendMessage"
@@ -38,19 +38,19 @@ app.use(cors())
 
 app.post("/", async (req, res) => {
 
-    // const chat_Id = req.body?.message?.chat.id || ""
-    console.log(req.body)
-    // try {
-         // await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
-         //     {
-         //         chat_id: chat_Id,
-         //         text:"Select Option",
-         //         reply_markup: JSON.stringify(keyBoard)
-         //     })
-    // }
-    // catch (err) {
-    //     console.log(err)
-    // }
+    const chat_Id = req.body?.message?.chat.id || ""
+    console.log(req.body?.message)
+    try {
+         await axios.post(`${GENERAL_URL}${BOT_TOKEN}/${BOT_METHODS.SEND_MESSAGE}`,
+             {
+                 chat_id: chat_Id,
+                 text:"Select Option",
+                 reply_markup: JSON.stringify(keyBoard)
+             })
+    }
+    catch (err) {
+        console.log(err)
+    }
     res.send({ "ok": true })
 })
 
