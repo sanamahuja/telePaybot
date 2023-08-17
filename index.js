@@ -4,7 +4,7 @@ const axios = require("axios")
 const PORT = 4000
 const SECRET_TOKEN = 'Sanambot'
 const GENERAL_URL = "https://api.telegram.org/bot"
-const BOT_TOKEN = "bot6116722343:AAFlkQrKa91gXIdeHEz1PcaTjvCvv-x1UGk"
+const BOT_TOKEN = "6116722343:AAFlkQrKa91gXIdeHEz1PcaTjvCvv-x1UGk"
 
 const BOT_METHODS = {
     SEND_MESSAGE: "sendMessage"
